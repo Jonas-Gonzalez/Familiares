@@ -1,0 +1,75 @@
+## 4. Dependencias (pubspec.yaml)
+
+
+name: fwd_app
+description: Familiares - Seguimiento quirúrgico
+version: 2.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: '>=3.22.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Arquitectura & Estado
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+  get_it: ^8.0.2
+  injectable: ^2.5.0
+  dartz: ^0.10.1                    # Either pattern para manejo de errores
+
+  # Networking
+  dio: ^5.7.0
+  connectivity_plus: ^6.1.0
+
+  # Storage
+  shared_preferences: ^2.3.3
+
+  # Push Notifications
+  firebase_core: ^3.8.0
+  firebase_messaging: ^15.1.5
+
+  # Navegación
+  go_router: ^14.6.2
+
+  # i18n
+  intl: ^0.20.2
+
+  # UI
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.16
+  url_launcher: ^6.3.1
+  webview_flutter: ^4.10.0
+
+  # Logging
+  logger: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+  # Code generation
+  build_runner: ^2.4.13
+  injectable_generator: ^2.6.3
+  json_serializable: ^6.8.0
+
+  # Testing
+  bloc_test: ^9.1.7
+  mocktail: ^1.0.4
+
+  # Linting
+  very_good_analysis: ^6.0.0
+
+flutter:
+  generate: true                      # Activa generación de localizaciones
+  assets:
+    - assets/data/
+    - assets/icons/
+    - assets/images/
