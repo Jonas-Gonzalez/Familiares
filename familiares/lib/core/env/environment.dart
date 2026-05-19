@@ -1,4 +1,5 @@
-// lib/core/env/environment.dart
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum Flavor { dev, prod }
 
 class Environment {
@@ -11,21 +12,22 @@ class Environment {
     required this.flavor,
     required this.apiBaseUrl,
     this.authUser,
-    this.authPassword,
+    this.authPassword,                           
   });
 
   bool get isProduction => flavor == Flavor.prod;
   bool get isDevelopment => flavor == Flavor.dev;
 
-  static const dev = Environment._(
-    flavor: Flavor.dev,
-    apiBaseUrl: 'http://192.168.0.15:3000/api/v1',
-  );
+  static Environment get dev => Environment._(
+        flavor: Flavor.dev,
+        apiBaseUrl: dotenv.env['APIBASEURL']!,
+      );
 
-    static const prod = Environment._(
-    flavor: Flavor.prod,
-    apiBaseUrl: 'https://wsm.ics.gencat.cat/gtct/appfamiliarshj23/api/v1',
-    authUser: String.fromEnvironment('API_USER'),
-    authPassword: String.fromEnvironment('API_PASSWORD'),
-  );
+  static Environment get prod => const Environment._(
+        flavor: Flavor.prod,
+        apiBaseUrl:
+            'https://wsm.ics.gencat.cat/gtct/appfamiliarshj23/api/v1',
+        authUser: String.fromEnvironment('API_USER'),
+        authPassword: String.fromEnvironment('API_PASSWORD'),
+      );
 }

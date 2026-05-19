@@ -4,5 +4,7 @@ import '../entities/patient_notification.dart';
 
 abstract class NotificationRepository {
   Future<Either<Failure, List<PatientNotification>>> getPatientNotifications(
-      String publicCode);
+    int idHospital,
+    String codPublicoPaciente,
+  );
 }
